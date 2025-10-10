@@ -1,4 +1,5 @@
-const WRITE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxqbE2XskOSxH-lsVCwWPrkv47j3RfClvkaRwfmcCjTNHKP_BXeerx4bg7nHPb6lfbN/exec';
+const WRITE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzHdbwF4XclTVj55zVO_3VNAlv9i1Bb6Ztk95YWrN6AvpmCgchDPVh6wy1L_4_lcVDC/exec';
+
 
 
 async function writeData(name, message) {
@@ -22,7 +23,7 @@ async function writeData(name, message) {
     const text = await response.text();
     console.log("Raw response:", text);
     const result = JSON.parse(text);
-    
+
     console.log('寫入結果:', result);
 
     if (result.result === 'success') {
