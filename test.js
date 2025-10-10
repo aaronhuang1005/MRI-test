@@ -12,17 +12,16 @@ async function writeData(name, message) {
     const response = await fetch(WRITE_ENDPOINT, {
       redirect: "follow",
       method: 'POST',
-      mode: 'cors',
       headers: {
         'Content-Type': 'text/plain',
       },
       body: JSON.stringify(payload)
     });
 
-    //const result = await response.json();
-    const text = await response.text();
-    console.log("Raw response:", text);
-    const result = JSON.parse(text);
+    const result = await response.json();
+    //const text = await response.text();
+    //console.log("Raw response:", text);
+    //const result = JSON.parse(text);
 
     console.log('寫入結果:', result);
 
