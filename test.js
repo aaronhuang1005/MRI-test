@@ -18,7 +18,11 @@ async function writeData(name, message) {
       body: JSON.stringify(payload)
     });
 
-    const result = await response.json();
+    //const result = await response.json();
+    const text = await response.text();
+    console.log("Raw response:", text);
+    const result = JSON.parse(text);
+    
     console.log('寫入結果:', result);
 
     if (result.result === 'success') {
