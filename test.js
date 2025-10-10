@@ -14,7 +14,7 @@ async function writeData(name, message) {
       method: 'POST',
       mode: 'cors',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'text/plain',
       },
       body: JSON.stringify(payload)
     });
