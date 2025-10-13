@@ -1,22 +1,20 @@
+// The endpoints for Google Apps Script web app
 const WRITE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzHdbwF4XclTVj55zVO_3VNAlv9i1Bb6Ztk95YWrN6AvpmCgchDPVh6wy1L_4_lcVDC/exec';
 
+// Get Prolific ID from URL parameters
 const urlParams = new URLSearchParams(window.location.search);
+const prolificID = urlParams.get('PROLIFIC_PID');
 
+// The completion code and URL for Prolific
 const completionCode = "C1CFNKX8"; 
 const completionURL = `https://app.prolific.com/submissions/complete?cc=${completionCode}`;
 
-const prolificID = urlParams.get('PROLIFIC_PID');
+// Get references to HTML elements
+const username = document.getElementById('name');
+const message = document.getElementById('message');
+const submitBtn = document.getElementById('button');
 
-if (prolificID) {
-    alert("Found Prolific ID:", prolificID);
-    console.log("Prolific ID:", prolificID);
-    // document.getElementById('participant_id_field').value = prolificID;
-} else {
-    // 参与者可能不是通过 Prolific 链接进入的
-    alert("Missing Prolific ID, please check your link.");
-}
-
-
+// Function to write data to Google Sheets via Google Apps Script
 async function writeData(prolificID, name, message) {
   const payload = {
     id: prolificID,
@@ -35,11 +33,12 @@ async function writeData(prolificID, name, message) {
     });
 
     const result = await response.json();
-    //const text = await response.text();
-    //console.log("Raw response:", text);
-    //const result = JSON.parse(text);
+    // Old usage to get HTML response
+    // const text = await response.text();
+    // console.log("Raw response:", text);
+    // const result = JSON.parse(text);
 
-    console.log('Result:', result);
+    //console.log('Result:', result);
 
     if (result.result === 'success') {
       alert('Successfully send data.');
@@ -51,21 +50,34 @@ async function writeData(prolificID, name, message) {
   }
 }
 
-//writeData('John Doe', 'Hello from GitHub Pages!');
+// Check if Prolific ID is present
+if (prolificID) {
+    console.log("Prolific ID:", prolificID);
+    // Optionally, pre-fill the Prolific ID field
+    // document.getElementById('participant_id_field').value = prolificID;
+} else {
+    alert("Missing Prolific ID, please check your link.");
+}
 
-const username = document.getElementById('name');
+// Example usage:
+// writeData('Aaron Huang', 'Hello from GitHub Pages!');
 
-const message = document.getElementById('message');
-
-const submitBtn = document.getElementById('button');
-
+// Handle form submission Btn
 submitBtn.onclick= function(){
+  //alert('clicked');
   if (!prolificID) {
     alert("Missing Prolific ID, please check your link.");
     return;
   }
+
+  if (!username.value) {
+    alert("Please enter your name.");
+    return;
+  }
+
   writeData(prolificID, username.value, message.value);
+
+  // Use replace to avoid user going back to the form page
   window.location.replace(completionURL); 
-  //alert('clicked');
 };
 
