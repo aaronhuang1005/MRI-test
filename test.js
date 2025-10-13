@@ -4,6 +4,7 @@ const WRITE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzHdbwF4XclTVj55
 // Get Prolific ID from URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 const prolificID = urlParams.get('PROLIFIC_PID');
+const studyID = urlParams.get('STUDY_ID');
 
 // The completion code and URL for Prolific
 const completionCode = "C1CFNKX8"; 
@@ -51,6 +52,7 @@ async function writeData(prolificID, name, message) {
 }
 
 // Check if Prolific ID is present
+/*
 if (prolificID) {
     console.log("Prolific ID:", prolificID);
     // Optionally, pre-fill the Prolific ID field
@@ -58,6 +60,7 @@ if (prolificID) {
 } else {
     alert("Missing Prolific ID, please check your link.");
 }
+*/
 
 // Example usage:
 // writeData('Aaron Huang', 'Hello from GitHub Pages!');
@@ -65,7 +68,9 @@ if (prolificID) {
 // Handle form submission Btn
 submitBtn.onclick= function(){
   //alert('clicked');
-  if (!prolificID) {
+
+  // Basic validation
+  if (!prolificID || studyID != "68ecafb3bde1c0da67737564") {
     alert("Missing Prolific ID, please check your link.");
     return;
   }
