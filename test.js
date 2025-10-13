@@ -71,7 +71,7 @@ submitBtn.onclick= function(){
 
   // Basic validation
   if (!prolificID || studyID != "68ecafb3bde1c0da67737564") {
-    alert("Missing Prolific ID, please check your link.");
+    alert("Error occured, please check your link.");
     return;
   }
 
