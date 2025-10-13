@@ -1,9 +1,25 @@
 const WRITE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzHdbwF4XclTVj55zVO_3VNAlv9i1Bb6Ztk95YWrN6AvpmCgchDPVh6wy1L_4_lcVDC/exec';
 
+const urlParams = new URLSearchParams(window.location.search);
+
+const completionCode = "C1CFNKX8"; 
+const completionURL = `https://app.prolific.com/submissions/complete?cc=${completionCode}`;
+
+const prolificID = urlParams.get('PROLIFIC_PID');
+
+if (prolificID) {
+    alert("Found Prolific ID:", prolificID);
+    console.log("Prolific ID:", prolificID);
+    // document.getElementById('participant_id_field').value = prolificID;
+} else {
+    // 参与者可能不是通过 Prolific 链接进入的
+    alert("Missing Prolific ID, please check your link.");
+}
 
 
-async function writeData(name, message) {
+async function writeData(prolificID, name, message) {
   const payload = {
+    id: prolificID,
     name: name,
     message: message
   };
@@ -23,15 +39,15 @@ async function writeData(name, message) {
     //console.log("Raw response:", text);
     //const result = JSON.parse(text);
 
-    console.log('寫入結果:', result);
+    console.log('Result:', result);
 
     if (result.result === 'success') {
-      alert('資料成功寫入 Google Sheet！');
+      alert('Successfully send data.');
     }
 
   } catch (error) {
-    console.error('寫入資料失敗:', error);
-    alert('寫入資料失敗，請稍後再試。');
+    console.error('Result(error):', error);
+    alert('Error sending data, please try again.');
   }
 }
 
@@ -44,7 +60,12 @@ const message = document.getElementById('message');
 const submitBtn = document.getElementById('button');
 
 submitBtn.onclick= function(){
-  writeData(username.value, message.value);
+  if (!prolificID) {
+    alert("Missing Prolific ID, please check your link.");
+    return;
+  }
+  writeData(prolificID, username.value, message.value);
+  window.location.replace(completionURL); 
   //alert('clicked');
 };
 
