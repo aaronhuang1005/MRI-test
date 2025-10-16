@@ -15,6 +15,14 @@ const username = document.getElementById('name');
 const message = document.getElementById('message');
 const submitBtn = document.getElementById('button');
 
+// Add delay function
+// Usage: await delay(3);
+function delay(n) {
+  return new Promise(function(resolve) {
+    setTimeout(resolve, n * 1000);
+  });
+}
+
 // Function to write data to Google Sheets via Google Apps Script
 async function writeData(prolificID, name, message) {
   const payload = {
@@ -49,7 +57,7 @@ async function writeData(prolificID, name, message) {
 
   } catch (error) {
     console.error('Result(error):', error);
-    alert('Error sending data, please try again later.');
+    alert('Error occured while sending data, please try again later.');
   }
 }
 
