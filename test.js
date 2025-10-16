@@ -42,12 +42,14 @@ async function writeData(prolificID, name, message) {
     //console.log('Result:', result);
 
     if (result.result === 'success') {
-      alert('Successfully send data.');
+      //alert('Successfully send data.');
+      // Use replace to avoid user going back to the form page
+      window.location.replace(completionURL); 
     }
 
   } catch (error) {
     console.error('Result(error):', error);
-    alert('Error sending data, please try again.');
+    alert('Error sending data, please try again later.');
   }
 }
 
@@ -82,7 +84,5 @@ submitBtn.onclick= function(){
 
   writeData(prolificID, username.value, message.value);
 
-  // Use replace to avoid user going back to the form page
-  window.location.replace(completionURL); 
 };
 
