@@ -1,31 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Test Project</title>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <h1>Github Page test</h1>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <title>TestMRI</title>
+        <meta name="description" content="TestMRI">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+        <link href="css/index.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    </head>
 
-    <p>
-        <strong>Project</strong>: <strong><ins style="color:rgb(156, 60, 60);">MRI-test</MRI-test></ins></strong><br>
-        <strong>Current test process</strong>: Get the URL link from <strong><ins style="color:rgb(93, 28, 168);">Prolific</ins></strong> then submit the data to <strong><ins style="color:rgb(47, 151, 43);">Google Sheet</ins></strong>.<br>
-        <strong>Test initiated</strong>: 2025-10-11<br>
-        <strong>Description</strong>:<br>Get the participant link on <strong><ins style="color:rgb(93, 28, 168);">Prolific</ins></strong> (private study), then enter your name, leave some message then submit. We will check if it successfully write the data.
-    </p>
+    <body>
+        <div id="Displayer">
+            <div id="analysis">
+                <p>APR = 1500ms</p>
+                <p>Correct Rate = (\(\frac{正確題數(0)}{已答題數(0)} \times 100\%\)) = NULL </p>
+            </div>
 
-    <div id="result">
-        <h2><strong>Information</strong></h2><br>
-        <input type="text" id="name" placeholder="Enter your name"><br><br>
-        <textarea id="message" cols="21" rows="5" placeholder="Leave your message here."></textarea><br><br>
-        <button id="button">Submit</button>
-    </div>
+            <h1 id="cross">+</h1>
 
-    <p id="warning">*Please don't leave any sensitive information. This test not yet completed the <strong> security check</strong>.</p>
+            <h1 id="reminder">reminder</h1>
+            
+            <div id="noise">
+                <h1 id="noise_1">noise_1</h1>
+                <h1 id="noise_2">noise_2</h1>
+            </div>
+            
+            <div id="targets">
+                <h1 id="target_1">target_1</h1>
+                <h1 id="target_2">target_2</h1>
+            </div>
+            
+            <div id="options">
+                <h1 id="option_1">option_1</h1>
+                <h1 id="option_2">option_2</h1>
+                <h1 id="option_3">option_3</h1>
+            </div>
+            
+            <h1 id="taskFinish">Task Finished</h1>
 
-    <script src="test.js"></script>
-    
-  </body>
+            <h1 id="question"></h1>
+        </div>
+    </body>
+
+    <script type="module" src="./js/System.js"></script>
 </html>
