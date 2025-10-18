@@ -18,17 +18,15 @@ export class QuestionLoader {
     }
     */
     
-    async loadQuestions(src){
+    async readTextFile(src){
         var textByLine = [];
         let questions = [];
-        const result = await fetch("https://aaronhuang1005.github.io/MRI-test/text/"+src)
+        const result = await fetch("https://aaronhuang1005.github.io/MRI-test/text/" + src)
             .then(response => response.arrayBuffer())
             .then(buffer => {
                 const decoder = new TextDecoder('utf-16le');
                 const textfile = decoder.decode(buffer);
                 textByLine = textfile.split("\n");
-                //console.log(textByLine);
-                //main();
                 for (var i = 0; i < textByLine.length; i++) {
                     var text = textByLine[i].split("\t");
 

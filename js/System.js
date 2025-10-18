@@ -6,12 +6,12 @@ let questionLoader = new QuestionLoader();
 
 //let questions = await questionLoader.loadQuestions("https://docs.google.com/document/d/e/2PACX-1vSVkGKkMAg2qD67FaQpA-uog_fY4sgqwhNF1zWCgYibJUEbFWHNbldxu_WsB27Qj1HInyMYnaoYCknL/pub");
 
-let questions = await questionLoader.loadQuestions("Easy_Condition 2.txt");
+//select the text file to load questions by inputing the file name
+let questions = await questionLoader.readTextFile("Easy_Condition 2.txt");
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
 
 console.debug(questions);
 console.debug(questions[0]);
