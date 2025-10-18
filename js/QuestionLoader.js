@@ -1,5 +1,5 @@
 export class QuestionLoader {
-    
+    /*
     async loadQuestions(src) {
         let response = await fetch(src);
         let textHTML = await response.text();
@@ -16,12 +16,12 @@ export class QuestionLoader {
 
         return questions;
     }
+    */
     
-    /*
-    async readTextFile(){
+    async readTextFile(src){
         var textByLine = [];
         let questions = [];
-        const result = await fetch("https://aaronhuang1005.github.io/MRI-test/text/Easy_Condition 2.txt")
+        const result = await fetch("https://aaronhuang1005.github.io/MRI-test/text/"+src)
             .then(response => response.arrayBuffer())
             .then(buffer => {
                 const decoder = new TextDecoder('utf-16le');
@@ -50,5 +50,4 @@ export class QuestionLoader {
         });
         return questions;
     }
-    */
 }

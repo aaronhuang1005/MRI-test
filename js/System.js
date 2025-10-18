@@ -2,11 +2,11 @@ import { Displayer } from "./Displayer.js";
 import { QuestionLoader } from "./QuestionLoader.js";
 
 let displayer = new Displayer();
-
 let questionLoader = new QuestionLoader();
-let questions = await questionLoader.loadQuestions("https://docs.google.com/document/d/e/2PACX-1vSVkGKkMAg2qD67FaQpA-uog_fY4sgqwhNF1zWCgYibJUEbFWHNbldxu_WsB27Qj1HInyMYnaoYCknL/pub");
 
-//let questions = await questionLoader.loadQuestions();
+//let questions = await questionLoader.loadQuestions("https://docs.google.com/document/d/e/2PACX-1vSVkGKkMAg2qD67FaQpA-uog_fY4sgqwhNF1zWCgYibJUEbFWHNbldxu_WsB27Qj1HInyMYnaoYCknL/pub");
+
+let questions = await questionLoader.loadQuestions("Easy_Condition 2.txt");
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -24,29 +24,29 @@ for(let i = 0; i < questions.length; i++) {
 
     let target_1 = document.getElementById("target_1");
     let target_2 = document.getElementById("target_2");
-    target_1.textContent = questions[i][0];
-    target_2.textContent = questions[i][1];
+    target_1.textContent = questions[i][0].split(" - ")[0];
+    target_2.textContent = questions[i][0].split(" - ")[1];
 
     let noise_1 = document.getElementById("noise_1");
     let noise_2 = document.getElementById("noise_2");
-    noise_1.textContent = questions[i][2];
-    noise_2.textContent = questions[i][3];
+    noise_1.textContent = questions[i][1];
+    noise_2.textContent = questions[i][2];
 
     let reminder = document.getElementById("reminder");
     let option_1 = document.getElementById("option_1");
     let option_2 = document.getElementById("option_2");
     let option_3 = document.getElementById("option_3");
-    reminder.textContent = `Correct pairing for "${questions[i][4]}"`;
-    option_1.textContent = questions[i][5];
-    option_2.textContent = questions[i][6];
-    option_3.textContent = questions[i][7];
+    reminder.textContent = `Correct pairing for "${questions[i][3]}"`;
+    option_1.textContent = questions[i][4];
+    option_2.textContent = questions[i][5];
+    option_3.textContent = questions[i][6];
 
     let choice = 0;
     option_1.onclick = () => { choice = 1; };
     option_2.onclick = () => { choice = 2; };
     option_3.onclick = () => { choice = 3; };
 
-    let answer = questions[i][8];
+    let answer = questions[i][7];
 
     displayer.show(["question"]);
     await sleep(WAIT);
