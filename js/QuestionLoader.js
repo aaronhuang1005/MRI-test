@@ -39,7 +39,7 @@ export class QuestionLoader {
                     var option = text.slice(4,6);
                     option.push(text[6].split(" ")[0]);
 
-                    var ans = Number(text[6].split(" ")[1]) - 1;
+                    var ans = Number(text[6].split(" ")[1]);
                     questions.push([paired_text, noise[0], noise[1], question, option[0], option[1], option[2], ans]);
                 }
             })
