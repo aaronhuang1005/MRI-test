@@ -18,7 +18,7 @@ export class QuestionLoader {
     }
     */
     
-    async readTextFile(src){
+    async loadQuestions(src){
         var textByLine = [];
         let questions = [];
         const result = await fetch("https://aaronhuang1005.github.io/MRI-test/text/"+src)
