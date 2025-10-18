@@ -6,9 +6,14 @@ let displayer = new Displayer();
 let questionLoader = new QuestionLoader();
 let questions = await questionLoader.loadQuestions("https://docs.google.com/document/d/e/2PACX-1vSVkGKkMAg2qD67FaQpA-uog_fY4sgqwhNF1zWCgYibJUEbFWHNbldxu_WsB27Qj1HInyMYnaoYCknL/pub");
 
+//let questions = await questionLoader.loadQuestions();
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+console.debug(questions);
+console.debug(questions[0]);
 
 let APR = 1500;
 let WAIT = 2000;
