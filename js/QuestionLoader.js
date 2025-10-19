@@ -15,35 +15,4 @@ export class QuestionLoader {
 
         return questions;
     }
-    
-    async readTextFile(src){
-        var textByLine = [];
-        let questions = [];
-        const result = await fetch("https://aaronhuang1005.github.io/MRI-test/text/" + src)
-            .then(response => response.arrayBuffer())
-            .then(buffer => {
-                const decoder = new TextDecoder('utf-16le');
-                const textfile = decoder.decode(buffer);
-                textByLine = textfile.split("\n");
-                for (var i = 0; i < textByLine.length; i++) {
-                    var text = textByLine[i].split("\t");
-
-                    // A-B
-                    var paired_text = text[0];
-                    var noise = text.slice(1,3);
-                    var question = text[3];
-
-                    // 4, 5, 6
-                    var option = text.slice(4,6);
-                    option.push(text[6].split(" ")[0]);
-
-                    var ans = Number(text[6].split(" ")[1]);
-                    questions.push([paired_text, noise[0], noise[1], question, option[0], option[1], option[2], ans]);
-                }
-            })
-            .catch(error => {
-                console.error(error);
-        });
-        return questions;
-    }
 }

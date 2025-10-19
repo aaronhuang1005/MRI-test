@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <title>TestMRI</title>
+        <meta name="description" content="TestMRI">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+        <link href="css/OlderAdultEasy.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    </head>
+
+    <body>
+        <div id="Displayer">
+            <div id="analysis">
+                <p>APR = 1500ms</p>
+                <p>Correct Rate = (\(\frac{正確題數(0)}{已答題數(0)} \times 100\%\)) = NULL </p>
+            </div>
+
+            <h1 id="cross">+</h1>
+
+            <h1 id="reminder">reminder</h1>
+            
+            <div id="noise">
+                <h1 id="noise_1">noise_1</h1>
+                <h1 id="noise_2">noise_2</h1>
+            </div>
+            
+            <div id="targets">
+                <h1 id="target_1">target_1</h1>
+                <h1 id="target_2">target_2</h1>
+            </div>
+            
+            <div id="options">
+                <h1 id="option_1">option_1</h1>
+                <h1 id="option_2">option_2</h1>
+                <h1 id="option_3">option_3</h1>
+            </div>
+            
+            <h1 id="taskFinish">Task Finished</h1>
+
+            <h1 id="question"></h1>
+        </div>
+    </body>
+
+    <script type="module" src="./js/OlderAdultEasy.js"></script>
+</html>
