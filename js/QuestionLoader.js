@@ -1,5 +1,4 @@
 export class QuestionLoader {
-    /*
     async loadQuestions(src) {
         let response = await fetch(src);
         let textHTML = await response.text();
@@ -16,7 +15,6 @@ export class QuestionLoader {
 
         return questions;
     }
-    */
     
     async readTextFile(src){
         var textByLine = [];
