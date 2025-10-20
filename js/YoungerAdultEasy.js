@@ -23,7 +23,7 @@ async function sleep(ms) {
     }); 
 }
 
-//let result = await poster.writeData("0000", "Younger_Easy", `100%`);
+//let result = await poster.writeData("0000", "Young_Easy", `100%`);
 
 let APR = 1000;
 let WAIT = 2000;
