@@ -1,5 +1,12 @@
 import { Displayer } from "./Displayer.js";
 import { QuestionLoader } from "./QuestionLoader.js";
+//import { Poster } from "./writeData.js";
+
+const urlParams = new URLSearchParams(window.location.search);
+const prolificID = urlParams.get('PROLIFIC_PID');
+
+const completionCode = "C1CFNKX8"; 
+const completionURL = `https://app.prolific.com/submissions/complete?cc=${completionCode}`;
 
 let displayer = new Displayer();
 
