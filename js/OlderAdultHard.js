@@ -23,7 +23,7 @@ async function sleep(ms) {
     }); 
 }
 
-let test = await poster.writeData("0000", "Old_Hard", `100%`);
+//let test = await poster.writeData("0000", "Old_Hard", `100%`);
 
 let APR = 1500;
 let WAIT = 2000;
