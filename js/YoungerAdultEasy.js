@@ -23,7 +23,7 @@ async function sleep(ms) {
     }); 
 }
 
-let result = await poster.writeData("0000", "Younger_Easy", `100%`);
+//let result = await poster.writeData("0000", "Younger_Easy", `100%`);
 
 let APR = 1000;
 let WAIT = 2000;
@@ -123,13 +123,13 @@ for(let i = 0; i < questions.length; i++) {
 
 displayer.show(["taskFinish"]);
 await sleep(WAIT);
-/*
+
 let result = await poster.writeData(prolificID, "Younger_Easy", `${(parseFloat(nCorrect)/questions.length*100).toFixed(2)}%`);
 if(result){
     window.location.replace(completionURL); 
 }else{
     await sleep(1000);
-    let retry = await Poster.writeData(prolificID, "Younger_Easy", `${(parseFloat(nCorrect)/questions.length*100).toFixed(2)}%`);
+    let retry = await poster.writeData(prolificID, "Younger_Easy", `${(parseFloat(nCorrect)/questions.length*100).toFixed(2)}%`);
     if(retry){
         window.location.replace(completionURL); 
     }else{
@@ -137,4 +137,3 @@ if(result){
         console.error('Result(error): Failed to send data after retry.');
     }
 }
-*/

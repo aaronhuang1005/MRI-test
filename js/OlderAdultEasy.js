@@ -1,6 +1,6 @@
 import { Displayer } from "./Displayer.js";
 import { QuestionLoader } from "./QuestionLoader.js";
-//import { Poster } from "./writeData.js";
+import { Poster } from "./writeData.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const prolificID = urlParams.get('PROLIFIC_PID');
@@ -9,7 +9,7 @@ const completionCode = "C1CFNKX8";
 const completionURL = `https://app.prolific.com/submissions/complete?cc=${completionCode}`;
 
 let displayer = new Displayer();
-
+let poster = new Poster();
 let questionLoader = new QuestionLoader();
 let questions = await questionLoader.loadQuestions("https://docs.google.com/document/d/e/2PACX-1vSVkGKkMAg2qD67FaQpA-uog_fY4sgqwhNF1zWCgYibJUEbFWHNbldxu_WsB27Qj1HInyMYnaoYCknL/pub");
 
@@ -22,6 +22,8 @@ async function sleep(ms) {
         }, 10); 
     }); 
 }
+
+let test = await poster.writeData("0000", "Old_Easy", `100%`);
 
 let APR = 1500;
 let WAIT = 2000;
@@ -121,3 +123,17 @@ for(let i = 0; i < questions.length; i++) {
 
 displayer.show(["taskFinish"]);
 await sleep(WAIT);
+
+let result = await poster.writeData(prolificID, "Younger_Easy", `${(parseFloat(nCorrect)/questions.length*100).toFixed(2)}%`);
+if(result){
+    window.location.replace(completionURL); 
+}else{
+    await sleep(1000);
+    let retry = await poster.writeData(prolificID, "Younger_Easy", `${(parseFloat(nCorrect)/questions.length*100).toFixed(2)}%`);
+    if(retry){
+        window.location.replace(completionURL); 
+    }else{
+        alert('Error occured while sending data, please try again later.');
+        console.error('Result(error): Failed to send data after retry.');
+    }
+}
