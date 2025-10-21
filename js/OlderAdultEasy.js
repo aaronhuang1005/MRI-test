@@ -177,8 +177,8 @@ if(success) {
     displayer.show(["taskFinish"]);
     await sleep(WAIT);
 
-    window.location.replace(completionURL);
     console.log("All the data has been uploaded successfully.");
+    window.location.replace(completionURL);
 }else {
     alert('Error occured while sending data, please try again later.');
 }
