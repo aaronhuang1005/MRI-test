@@ -144,14 +144,6 @@ for(let i = 0; i < questions.length; i++) {
     APR = Math.max(APR, 200);
     APR = Math.min(APR, 5000);
 
-    // Debug 用，後續可刪除
-    let analysis = document.getElementById("analysis");
-    let datas = analysis.querySelectorAll("p");
-    datas[0].textContent = `APR = ${APR}ms`;
-    datas[1].textContent = 
-    `Correct Rate = (\\(\\frac{正確題數(${nCorrect})}{已答題數(${block})} \\times 100\\%\\)) = ${(correctRate*100).toFixed(0)}%`;
-    MathJax.typeset();
-
     // 顯示加號
     displayer.show(["cross"]);
     await sleep(WAIT);
