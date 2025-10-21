@@ -1,5 +1,5 @@
 export class Poster{
-  async writeData(prolificID, table, block, response, ans, rt) {
+  async writeData(prolificID, table, block, present, response, ans, rt) {
     if (!prolificID) {
       alert("Error occured, please check your link.");
       console.error('Result(error): Prolific ID is missing.');
@@ -15,6 +15,7 @@ export class Poster{
       id: prolificID,
       table: table,
       block: block,
+      present: present,
       response: response,
       ans: ans,
       acc: acc,
