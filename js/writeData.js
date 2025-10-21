@@ -1,16 +1,23 @@
 export class Poster{
-  async writeData(prolificID, table, message) {
+  async writeData(prolificID, table, block, response, ans, rt) {
     if (!prolificID) {
       alert("Error occured, please check your link.");
       console.error('Result(error): Prolific ID is missing.');
       return false;
     }
+    
+    const acc = (response === ans) ? 1 : 0;
 
     const WRITE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzHdbwF4XclTVj55zVO_3VNAlv9i1Bb6Ztk95YWrN6AvpmCgchDPVh6wy1L_4_lcVDC/exec';
+    // data.id, data.block, data.present, data.response, data.ans, data.acc, data.rt
     const payload = {
       id: prolificID,
       table: table,
-      message: message
+      block: block,
+      response: response,
+      ans: ans,
+      acc: acc,
+      rt: rt
     };
 
     try {
@@ -28,14 +35,14 @@ export class Poster{
       if (result.result === 'success') {
         return true;
       }else{
+        console.error('Result(error):', result.message);
         return false;
       }
     } catch (error) {
+      console.error('Result(error):', error);
       return false;
     }
-}
-
-//writeData(prolificID, username.value, message.value);
+  }
 }
 
 /*
