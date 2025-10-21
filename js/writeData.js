@@ -5,10 +5,11 @@ export class Poster{
       console.error('Result(error): Prolific ID is missing.');
       return false;
     }
-    
+
     const acc = (response === ans) ? 1 : 0;
 
     const WRITE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzHdbwF4XclTVj55zVO_3VNAlv9i1Bb6Ztk95YWrN6AvpmCgchDPVh6wy1L_4_lcVDC/exec';
+    // data.table
     // data.id, data.block, data.present, data.response, data.ans, data.acc, data.rt
     const payload = {
       id: prolificID,
