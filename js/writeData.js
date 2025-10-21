@@ -41,7 +41,7 @@ export class Poster{
         return false;
       }
     } catch (error) {
-      console.error('Result(error):', error);
+      console.error('Result(error):Error occured while sending data:');
       return false;
     }
   }
