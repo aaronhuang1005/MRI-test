@@ -124,7 +124,7 @@ for(let i = 0; i < questions.length; i++) {
     rt = performance.now() - rt;
 
     // 計算目前正確作答次數、選項
-    let response = questions[i][choice + 4];
+    let response = (choice > 0) ? questions[i][choice + 4] : "NULL";
     if(choice == answer) { nCorrect += 1; }
 
     // 計算正確率(答對題數/總答題數)
