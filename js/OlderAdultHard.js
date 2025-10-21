@@ -158,15 +158,21 @@ for(let i = 0; i < questions.length; i++) {
 displayer.show(["taskFinish"]);
 await sleep(WAIT);
 
+let success = true;
 for(let i = 0; i < toPost.length; i++) {
     // 依序上傳 Block 數據
     let block = toPost[i];
     let status = await poster.writeData(block[0], block[1], block[2], block[3], block[4], block[5], block[6]);
-    
-    // 如果上傳成功，導向 Prolific 完成頁面
-    if(status) {
-        window.location.replace(completionURL);
-    }else {
-        alert('Error occured while sending data, please try again later.');
-    }
+
+    // 判斷有無上傳成功
+    if(!status)
+        success = false;
+}
+
+// 如果全部上傳成功，導向 Prolific 完成頁面
+if(success) {
+    window.location.replace(completionURL);
+    console.log("All the data has been uploaded successfully.");
+}else {
+    alert('Error occured while sending data, please try again later.');
 }
