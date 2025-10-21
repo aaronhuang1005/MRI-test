@@ -1,16 +1,15 @@
 export class Poster{
-  async writeData(prolificID, table, block, present, response, ans, rt) {
+  async writeData(prolificID, table, present, response, ans, rt) {
     if (!prolificID) {
       alert("Error occured, please check your link.");
       console.error('Result(error): Prolific ID is missing.');
       return false;
     }
 
-    const acc = (response === ans) ? 1 : 0;
-
     const WRITE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzHdbwF4XclTVj55zVO_3VNAlv9i1Bb6Ztk95YWrN6AvpmCgchDPVh6wy1L_4_lcVDC/exec';
     // data.table
     // data.id, data.block, data.present, data.response, data.ans, data.acc, data.rt
+    /*
     const payload = {
       id: prolificID,
       table: table,
@@ -18,8 +17,19 @@ export class Poster{
       present: present,
       response: response,
       ans: ans,
-      acc: acc,
+      acc: (response === ans) ? 1 : 0;,
       rt: rt
+    };
+    */
+
+    let temp = [];
+    for(let i = 0 ; i < present.length ; i++){
+      temp.push({id:prolificID, block:i+1, present:present[i], response:response[i], ans:ans[i], acc:(response[i] === ans[i]) ? 1 : 0, rt:rt[i]});
+    }
+
+    const payload = {
+      table: table,
+      rows:temp
     };
 
     try {
