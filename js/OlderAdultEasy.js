@@ -34,7 +34,10 @@ async function sleep(ms) {
 let APR = 1500; // trial 1 ~ 3 的持續時間
 let WAIT = 2000; // 加號、題號的持續時間
 let nCorrect = 0; // 作答正確次數
-let toPost = [];
+let vPresent = [];
+let vResponse = [];
+let vAns = [];
+let vRt = [];
 
 // 遍歷每個 block
 for(let i = 0; i < questions.length; i++) {
@@ -76,6 +79,7 @@ for(let i = 0; i < questions.length; i++) {
 
     // 正確答案單字
     let ans = questions[i][parseInt(answer) + 4];
+    vAns.push(ans);
 
     // 顯示題號
     displayer.show(["question"]);
@@ -117,14 +121,16 @@ for(let i = 0; i < questions.length; i++) {
                 clearInterval(intervalID);
                 resolve();
             }
-        }, 20);
+        }, 1);
     });
 
     // 反應時間
     rt = performance.now() - rt;
+    vRt.push(rt);
 
     // 計算目前正確作答次數、選項
     let response = (choice > 0) ? questions[i][choice + 4] : "NULL";
+    vResponse.push(response);
     if(choice == answer) { nCorrect += 1; }
 
     // 計算正確率(答對題數/總答題數)
@@ -133,7 +139,7 @@ for(let i = 0; i < questions.length; i++) {
     correctRate = parseFloat(correctRate);
 
     // 根據閾值、正確率，增減 Presentation Time
-    let present = APR;
+    vPresent.push(APR);
     APR = (correctRate >= 0.67) ? APR - 100 : APR + 200;
     APR = Math.max(APR, 200);
     APR = Math.min(APR, 5000);
@@ -149,31 +155,23 @@ for(let i = 0; i < questions.length; i++) {
     // 顯示加號
     displayer.show(["cross"]);
     await sleep(WAIT);
-
-    // 儲存此 Block 數據
-    toPost.push( [String(prolificID), String(table), String(block), present, String(response), String(ans), rt] );
 }
 
-// 上傳檔案
+// 上傳資料中
 displayer.show(["uploading"]);
 let success = await new Promise(async (resolve, reject) => {
-    for(let i = 0; i < toPost.length; i++) {
-        // 依序上傳 Block 數據
-        let block = toPost[i];
-        let status = await poster.writeData(block[0], block[1], block[2], block[3], block[4], block[5], block[6]);
+    // 上傳資料
+    let status = await poster.writeData(prolificID, table, vPresent, vResponse, vAns, vRt);
 
-        // 等 1 秒
-        await sleep(1);
-
-        // 只要有一個檔案上傳失敗就退出迴圈
-        if(!status)
-            reject(false);
+    // 檢查狀態
+    if(status) {
+        resolve(true);
+    }else {
+        reject(false);
     }
-    // 上傳成功
-    resolve(true);
 });
 
-// 如果全部上傳成功，導向 Prolific 完成頁面
+// 如果上傳成功，導向 Prolific 完成頁面
 if(success) {
     // 顯示完成
     displayer.show(["taskFinish"]);
