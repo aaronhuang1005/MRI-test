@@ -72,10 +72,10 @@ for(let i = 0; i < questions.length; i++) {
     option_3.onclick = () => { choice = 3; };
 
     // 正確答案編號
-    let answer = questions[i][8];
+    let answer = parseInt(questions[i][8]);
 
     // 正確答案單字
-    let ans = questions[i][answer + 4];
+    let ans = questions[i][parseInt(answer) + 4];
 
     // 顯示題號
     displayer.show(["question"]);
