@@ -162,6 +162,7 @@ let success = true;
 for(let i = 0; i < toPost.length; i++) {
     // 依序上傳 Block 數據
     let block = toPost[i];
+    console.log(block);
     let status = await poster.writeData(block[0], block[1], block[2], block[3], block[4], block[5], block[6]);
 
     // 判斷有無上傳成功
