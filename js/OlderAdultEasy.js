@@ -162,6 +162,9 @@ let success = await new Promise(async (resolve, reject) => {
         let block = toPost[i];
         let status = await poster.writeData(block[0], block[1], block[2], block[3], block[4], block[5], block[6]);
 
+        // 等 1 秒
+        await sleep(1);
+
         // 只要有一個檔案上傳失敗就退出迴圈
         if(!status)
             reject(false);
