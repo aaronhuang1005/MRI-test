@@ -170,12 +170,12 @@ let success = await new Promise(async (resolve, reject) => {
     resolve(true);
 });
 
-// 顯示完成
-displayer.show(["taskFinish"]);
-await sleep(WAIT);
-
 // 如果全部上傳成功，導向 Prolific 完成頁面
 if(success) {
+    // 顯示完成
+    displayer.show(["taskFinish"]);
+    await sleep(WAIT);
+
     window.location.replace(completionURL);
     console.log("All the data has been uploaded successfully.");
 }else {
