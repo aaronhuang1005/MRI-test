@@ -154,20 +154,25 @@ for(let i = 0; i < questions.length; i++) {
     toPost.push( [String(prolificID), String(table), String(block), present, String(response), String(ans), rt] );
 }
 
+// 上傳檔案
+displayer.show(["uploading"]);
+let success = await new Promise(async (resolve, reject) => {
+    for(let i = 0; i < toPost.length; i++) {
+        // 依序上傳 Block 數據
+        let block = toPost[i];
+        let status = await poster.writeData(block[0], block[1], block[2], block[3], block[4], block[5], block[6]);
+
+        // 只要有一個檔案上傳失敗就退出迴圈
+        if(!status)
+            reject(false);
+    }
+    // 上傳成功
+    resolve(true);
+});
+
 // 顯示完成
 displayer.show(["taskFinish"]);
 await sleep(WAIT);
-
-let success = true;
-for(let i = 0; i < toPost.length; i++) {
-    // 依序上傳 Block 數據
-    let block = toPost[i];
-    let status = await poster.writeData(block[0], block[1], block[2], block[3], block[4], block[5], block[6]);
-
-    // 判斷有無上傳成功
-    if(!status)
-        success = false;
-}
 
 // 如果全部上傳成功，導向 Prolific 完成頁面
 if(success) {

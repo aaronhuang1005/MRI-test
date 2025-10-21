@@ -191,3 +191,10 @@ body {
     font-family: 'Philosopher', serif;
 }
 
+#uploading {
+    user-select: none;
+    cursor: default;
+    font-family: 'Philosopher', serif;
+    display: none;
+}
+

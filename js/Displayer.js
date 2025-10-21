@@ -7,6 +7,7 @@ export class Displayer {
             "targets", "target_1", "target_2", 
             "options", "option_1", "option_2", "option_3",
             "taskFinish",
+            "uploading",
             "question"
         ];
     }
