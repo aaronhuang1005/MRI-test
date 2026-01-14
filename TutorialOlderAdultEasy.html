@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <title>TestMRI</title>
+        <meta name="description" content="TestMRI">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+        <link href="css/TutorialOlderAdultEasy.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    </head>
+
+    <body>
+        <!-- 包裝容器 -->
+        <div id="divContentWraper">
+            <!-- Instruction 介面 -->
+            <div id="divInstructionCover">
+                <h1>Instruction</h1>
+                <div id="btnStart"><p>START</p></div>
+            </div>
+
+            <!-- 教學 0 -->
+            <div id="divInstrution_0">
+                <p>
+                    This task consists of <strong>32 trials</strong>. Please <strong>pay attention</strong> to the task.
+                    Each trial contains <strong>a word pair, two single words, and a three-alternative forced-choice test.</strong>
+                </p>
+
+                <p style="margin-top: 64px; width: 100%;">Example:</p>
+
+                <div style="margin-top: 24px;">
+                    <p>violin – nature <span style="color: green;">&nbsp;&nbsp;➤&nbsp;&nbsp;</span></p>
+                    <p>cake <span style="color: green;">&nbsp;&nbsp;➤&nbsp;&nbsp;</span></p>
+                    <p>cookie <span style="color: green;">&nbsp;&nbsp;➤&nbsp;&nbsp;</span></p>
+                    <p style="font-size: 2.0vw; text-align: left;">
+                        <span style="display: block; margin-bottom: 12px;">Correct pairing for 'violin'</span>
+                        · nature <span style="color: green;">✔</span><br>
+                        · cake<br>
+                        · mountain
+                    </p>
+                </div>
+            </div>
+
+            <!-- 教學 1 -->
+            <div id="divInstrution_1">
+                <p style="text-align: center;">
+                    When you see a <strong>word pair</strong> on the screen,<br>please try to <strong>remember</strong> it.
+                </p>
+
+                <!-- 示意圖 -->
+                <div id="divDisplayer_1" style="margin-top: 5vh;">
+                    <p style="display: block; position: absolute; top: 1vh; left: 1vw;">e.g.</p>
+                    <div>
+                        <h1>violin</h1>
+                        <div style="width: 2vw;"></div>
+                        <h1>nature</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教學 2 -->
+            <div id="divInstrution_2">
+                <p style="text-align: center;">
+                    When you see <strong>only one word</strong> on the screen,<br>
+                    e.g., cake, cookie<br>
+                    please try <strong>not to</strong> remember it.
+                </p>
+
+                <!-- 示意圖 -->
+                <div id="divDisplayer_2" style="margin-top: 5vh;">
+                    <p style="display: block; position: absolute; top: 1vh; left: 1vw;">e.g.</p>
+                    <div>
+                        <h1>cookie</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教學 3 -->
+            <div id="divInstrution_3">
+                <p style="text-align: center;">
+                    When you see <strong>a three-alternative forced-choice test</strong>, you will
+                    have a maximum of <strong>8 seconds</strong> to click the <strong>correct pairing</strong> for
+                    the word that they have presented as a word pair before. 
+                    In this example, you should click <strong>'nature'</strong> for the correct pairing.
+                </p>
+
+                <!-- 示意圖 -->
+                <div id="divDisplayer_3" style="margin-top: 5vh;">
+                    <p style="display: block; position: absolute; top: 1vh; left: 1vw;">e.g.</p>
+                    <div>
+                        <h1>nature&nbsp;<span style="color: green;">✔</span></h1>
+                        <h1>cake</h1>
+                        <h1>mountain</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教學 4 -->
+            <div id="divInstrution_4">
+                <p style="text-align: center;">
+                    The task is about to begin.<br>
+                    After a fixation cross,<br>
+                    please follow the instructions and pay attention to the task.
+                </p>
+            </div>
+
+            <!-- 教學 5 -->
+            <div id="divInstrution_5">
+                <h1 id="cross">+</h1>
+            </div>
+
+            <!-- Next/Back 按鈕 -->
+            <div id="divNextBack">
+                <div id="btnBack"><p>BACK</p></div>
+                <p style="display: block;" id="pos"></p>
+                <div id="btnNext"><p>NEXT</p></div>
+            </div>
+        </div>
+    </body>
+
+    <script type="module" src="./js/TutorialOlderAdultEasy.js"></script>
+</html>

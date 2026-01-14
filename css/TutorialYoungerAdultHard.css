@@ -1,0 +1,383 @@
+@charset "UTF-8";
+
+html { font-size: 16px; }
+
+#divContentWraper {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#divInstructionCover {
+    width: 60vw;
+    height: 30vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    transition: 0.3s;
+}
+
+#divInstructionCover h1 {
+    user-select: none;
+    font-family: 'Philosopher', serif;
+    margin-bottom: 48px;
+    font-size: 5.0vw;
+}
+
+#divInstructionCover p {
+    user-select: none;
+    font-family: 'Philosopher', serif;
+    font-size: 2vw;
+
+    text-align: justify;
+}
+
+#divInstructionCover div {
+    width: 10vw;
+    height: 4vw;
+
+    border: 1px rgba(0, 0, 0, 0.7) solid;
+    border-radius: 2.4vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#divInstructionCover div:hover {
+    transition: 0.3s;
+    background-color: rgb(230, 230, 230);
+}
+
+#divInstrution_0 {
+    width: 60vw;
+    height: 30vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    transition: 0.3s;
+
+    display: none;
+}
+
+#divInstrution_0 p {
+    user-select: none;
+    font-family: 'Philosopher', serif;
+    font-size: 2.0vw;
+}
+
+#divInstrution_0 div {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+}
+
+#divInstrution_1 {
+    width: 60vw;
+    height: 30vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    display: none;
+
+    transition: 0.3s;
+}
+
+#divInstrution_1 p {
+    user-select: none;
+    font-family: 'Philosopher', serif;
+    font-size: 2.0vw;
+}
+
+#divDisplayer_1 {
+    width: 36vw;
+    height: 20vw;
+
+    border-radius: 10px;
+    border: 1px rgba(0, 0, 0, 0.2) solid;
+
+    background-color: aliceblue;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+}
+
+#divDisplayer_1 div {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#divDisplayer_1 div h1 {
+    user-select: none;
+    width: 10vw;
+    height: 5vw;
+
+    font-size: 1.6vw;
+
+    background-color:aliceblue;
+    border: 2px rgba(0, 0, 0, 0.5) solid;
+
+    font-family: 'Philosopher', serif;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#divInstrution_2 {
+    width: 60vw;
+    height: 30vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    display: none;
+
+    transition: 0.3s;
+}
+
+#divInstrution_2 p {
+    user-select: none;
+    font-family: 'Philosopher', serif;
+    font-size: 2.0vw;
+}
+
+#divDisplayer_2 {
+    width: 36vw;
+    height: 20vw;
+
+    border-radius: 10px;
+    border: 1px rgba(0, 0, 0, 0.2) solid;
+
+    background-color: aliceblue;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+}
+
+#divDisplayer_2 div {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#divDisplayer_2 div h1 {
+    user-select: none;
+    width: 10vw;
+    height: 5vw;
+
+    font-size: 1.6vw;
+
+    background-color:aliceblue;
+    border: 2px rgba(0, 0, 0, 0.5) solid;
+
+    font-family: 'Philosopher', serif;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#divInstrution_3 {
+    width: 60vw;
+    height: 30vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    transition: 0.3s;
+
+    display: none;
+}
+
+#divInstrution_3 p {
+    user-select: none;
+    font-family: 'Philosopher', serif;
+    font-size: 2.0vw;
+}
+
+#divDisplayer_3 {
+    width: 56vw;
+    height: 20vw;
+
+    border-radius: 10px;
+    border: 1px rgba(0, 0, 0, 0.2) solid;
+
+    background-color: aliceblue;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+}
+
+#divDisplayer_3 div {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#divDisplayer_3 div h1 {
+    user-select: none;
+    width: 10vw;
+    height: 5vw;
+
+    font-size: 1.6vw;
+
+    background-color:rgb(255, 255, 255);
+    border: 2px rgba(0, 0, 0, 0.5) solid;
+
+    font-family: 'Philosopher', serif;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#divInstrution_4 {
+    width: 60vw;
+    height: 30vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    transition: 0.3s;
+
+    display: none;
+}
+
+#divInstrution_4 p {
+    user-select: none;
+    font-family: 'Philosopher', serif;
+    font-size: 2.0vw;
+}
+
+#cross {
+    user-select: none;
+    cursor: default;
+    font-size: 10vw;
+
+    transition: 0.3s;
+
+    display: none;
+}
+
+#btnBack {
+    width: 10vw;
+    height: 4vw;
+
+    border: 1px rgba(0, 0, 0, 0.7) solid;
+    border-radius: 2.4vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#btnBack p { font-size: 2vw; font-family: 'Philosopher', serif; }
+
+#btnBack:hover {
+    transition: 0.3s;
+    background-color: rgb(230, 230, 230);
+}
+
+#btnNext {
+    width: 10vw;
+    height: 4vw;
+
+    border: 1px rgba(0, 0, 0, 0.7) solid;
+    border-radius: 2.4vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#btnNext p { font-size: 2vw; font-family: 'Philosopher', serif; }
+
+#btnNext:hover {
+    transition: 0.3s;
+    background-color: rgb(230, 230, 230);
+}
+
+#divNextBack {
+    width: 60vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 2vw;
+
+    display: none;
+
+    user-select: none;
+}
+
+#btnStart {
+    transition: 0.3s;
+}
+
+#pos {
+    user-select: none;
+    font-family: 'Philosopher', serif;
+    font-size: 2.4vw;
+}
