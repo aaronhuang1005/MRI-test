@@ -12,8 +12,8 @@ let divInstrution_4 = document.getElementById('divInstrution_4');
 let divInstructionCover = document.getElementById('divInstructionCover');
 
 const urlParams = new URLSearchParams(window.location.search);
-const external_id = urlParams.get('external_id');
-const external_session_id = urlParams.get('external_session_id');
+let external_id = urlParams.get('external_id');
+let external_session_id = urlParams.get('external_session_id');
 
 // function: 暫停一段時間(毫秒)
 async function sleep(ms) { 
