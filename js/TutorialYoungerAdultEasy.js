@@ -114,8 +114,8 @@ btnNext.addEventListener('click', async () => {
         pages[position].style.opacity = '0';
         await sleep(1000);
 
-        let external_id = external_id ? external_id : 'external_id_null';
-        let external_session_id = external_session_id ? external_session_id : 'external_session_id_null';
+        external_id = external_id ? external_id : 'external_id_null';
+        external_session_id = external_session_id ? external_session_id : 'external_session_id_null';
         window.location.replace(`./YoungerAdultEasy.html?external_id=${external_id}&external_session_id=${external_session_id}`);
 
         return; 
