@@ -154,7 +154,7 @@ for(let i = 0; i < questions.length; i++) {
 displayer.show(["uploading"]);
 let success = await new Promise(async (resolve, reject) => {
     // 上傳資料
-    let status = await poster.writeData(prolificID, table, vPresent, vResponse, vAns, vRt);
+    let status = await poster.writeData(external_id, table, vPresent, vResponse, vAns, vRt);
 
     // 檢查狀態
     if(status) {
