@@ -2,9 +2,10 @@ import { Displayer } from "./Displayer.js";
 import { QuestionLoader } from "./QuestionLoader.js";
 import { Poster } from "./writeData.js";
 
-// 網址參數和 Prolific ID
+// 網址參數
 const urlParams = new URLSearchParams(window.location.search);
-const prolificID = urlParams.get('PROLIFIC_PID');
+const external_id = urlParams.get('external_id');
+const external_session_id = urlParams.get('external_session_id');
 
 // 完成代碼
 const completionCode = "C1CFNKX8"; 
@@ -163,14 +164,19 @@ let success = await new Promise(async (resolve, reject) => {
     }
 });
 
-// 如果上傳成功，導向 Prolific 完成頁面
+// 如果上傳成功，導向 Gorilla 測驗
 if(success) {
     // 顯示完成
     displayer.show(["taskFinish"]);
     await sleep(WAIT);
 
     console.log("All the data has been uploaded successfully.");
-    window.location.replace(completionURL);
+    window.location.replace( // 前往 Gorilla 測驗
+        `https://research.sc/participant/login/dynamic/15E487BE-7D34-463D-9E44-080B497D709D?
+        external_id=${external_id}&
+        external_session_id=${external_session_id}`
+    );
+
 }else {
     alert('Error occured while sending data, please try again later.');
 }
