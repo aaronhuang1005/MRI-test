@@ -11,6 +11,9 @@ let divInstrution_3 = document.getElementById('divInstrution_3');
 let divInstrution_4 = document.getElementById('divInstrution_4');
 let divInstructionCover = document.getElementById('divInstructionCover');
 
+const urlParams = new URLSearchParams(window.location.search);
+const prolificID = urlParams.get('external_id');
+
 // function: 暫停一段時間(毫秒)
 async function sleep(ms) { 
     return new Promise(resolve => { 
@@ -110,7 +113,8 @@ btnNext.addEventListener('click', async () => {
         pages[position].style.opacity = '0';
         await sleep(1000);
 
-        window.location.replace('./YoungerAdultEasy.html?PROLIFIC_PID=YOUNGEASYTEST'); 
+        let finalID = prolificID ? prolificID : 'test12345';
+        window.location.replace('./YoungerAdultEasy.html?PROLIFIC_PID=' + finalID);
 
         return; 
     }
