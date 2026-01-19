@@ -12,7 +12,8 @@ let divInstrution_4 = document.getElementById('divInstrution_4');
 let divInstructionCover = document.getElementById('divInstructionCover');
 
 const urlParams = new URLSearchParams(window.location.search);
-const prolificID = urlParams.get('external_id');
+const external_id = urlParams.get('external_id');
+const external_session_id = urlParams.get('external_session_id');
 
 // function: 暫停一段時間(毫秒)
 async function sleep(ms) { 
@@ -113,8 +114,9 @@ btnNext.addEventListener('click', async () => {
         pages[position].style.opacity = '0';
         await sleep(1000);
 
-        let finalID = prolificID ? prolificID : 'test12345';
-        window.location.replace('./YoungerAdultEasy.html?PROLIFIC_PID=' + finalID);
+        let external_id = external_id ? external_id : 'external_id_null';
+        let external_session_id = external_session_id ? external_session_id : 'external_session_id_null';
+        window.location.replace(`./YoungerAdultEasy.html?external_id=${external_id}&external_session_id=${external_session_id}`);
 
         return; 
     }
