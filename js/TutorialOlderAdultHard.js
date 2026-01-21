@@ -110,7 +110,9 @@ btnNext.addEventListener('click', async () => {
         pages[position].style.opacity = '0';
         await sleep(1000);
 
-        window.location.replace('./OlderAdultHard.html?PROLIFIC_PID=OLDHARDTEST'); 
+        external_id = external_id ? external_id : 'external_id_null';
+        external_session_id = external_session_id ? external_session_id : 'external_session_id_null';
+        window.location.replace(`./OlderAdultHard.html?external_id=${external_id}&external_session_id=${external_session_id}`);
 
         return; 
     }
