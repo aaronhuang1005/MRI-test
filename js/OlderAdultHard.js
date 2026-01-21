@@ -2,9 +2,10 @@ import { Displayer } from "./Displayer.js";
 import { QuestionLoader } from "./QuestionLoader.js";
 import { Poster } from "./writeData.js";
 
-// 網址參數和 Prolific ID
+// 網址參數
 const urlParams = new URLSearchParams(window.location.search);
-const prolificID = urlParams.get('PROLIFIC_PID');
+const external_id = urlParams.get('external_id');
+const external_session_id = urlParams.get('external_session_id');
 
 // 完成代碼
 const completionCode = "C1CFNKX8"; 
@@ -153,7 +154,7 @@ for(let i = 0; i < questions.length; i++) {
 displayer.show(["uploading"]);
 let success = await new Promise(async (resolve, reject) => {
     // 上傳資料
-    let status = await poster.writeData(prolificID, table, vPresent, vResponse, vAns, vRt);
+    let status = await poster.writeData(external_id, table, vPresent, vResponse, vAns, vRt);
 
     // 檢查狀態
     if(status) {
