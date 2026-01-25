@@ -172,7 +172,7 @@ if(success) {
 
     console.log("All the data has been uploaded successfully.");
     window.location.replace( // 前往 Gorilla 測驗
-        `https://research.sc/participant/login/dynamic/15E487BE-7D34-463D-9E44-080B497D709D?
+        `https://research.sc/participant/login/dynamic/8B26889C-9AF9-4F38-AE7D-3AD04E64C4C0?
         external_id=${external_id}&
         external_session_id=${external_session_id}`
     );
