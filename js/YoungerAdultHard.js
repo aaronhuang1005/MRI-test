@@ -45,7 +45,7 @@ for(let i = 0; i < questions.length; i++) {
     // 題號
     let block = i+1;
     let question = document.getElementById("question");
-    question.textContent = "Question " + block;
+    question.textContent = "Trial " + block;
 
     // 匹配單字
     let target_1 = document.getElementById("target_1");
