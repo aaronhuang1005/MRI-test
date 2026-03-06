@@ -35,6 +35,7 @@ async function sleep(ms) {
 let APR = 1000; // trial 1 ~ 3 的持續時間
 let WAIT = 2000; // 加號、題號的持續時間
 let nCorrect = 0; // 作答正確次數
+let vCorrect = []; // 答題正確與否紀錄
 let vPresent = [];
 let vResponse = [];
 let vAns = [];
@@ -132,12 +133,22 @@ for(let i = 0; i < questions.length; i++) {
     // 計算目前正確作答次數、選項
     let response = (choice > 0) ? questions[i][choice + 4] : "NULL";
     vResponse.push(response);
-    if(choice == answer) { nCorrect += 1; }
+    
+    nCorrect = 0; // 歸零
+    vCorrect.push(choice == answer); // 紀錄答題正確與否
+    if(vCorrect.length > 10) vCorrect.shift(); // 最多保留最近十筆作答正確與否的資料
 
-    // 計算正確率(答對題數/總答題數)
-    let correctRate = parseFloat(nCorrect)/parseFloat(block);
+    // 計算最近 10 筆內的答對題數
+    for(let i = 0; i < vCorrect.length; i++)
+        nCorrect += vCorrect[i];
+
+    // 計算正確率(答對題數/答題數(最高10筆))
+    let correctRate = parseFloat(nCorrect)/parseFloat(vCorrect.length);
     correctRate = correctRate.toFixed(2);
     correctRate = parseFloat(correctRate);
+
+    console.log(`vCorrect: ${vCorrect}`);
+    console.log(`correctRate: ${correctRate}`);
 
     // 根據閾值、正確率，增減 Presentation Time
     vPresent.push(APR);
