@@ -36,6 +36,7 @@ let APR = 1000; // trial 1 ~ 3 的持續時間
 let WAIT = 2000; // 加號、題號的持續時間
 let nCorrect = 0; // 作答正確次數
 let vCorrect = []; // 答題正確與否紀錄
+let vAP = []; // 紀錄每次的正確率百分比
 let vPresent = [];
 let vResponse = [];
 let vAns = [];
@@ -150,6 +151,9 @@ for(let i = 0; i < questions.length; i++) {
     console.log(`vCorrect: ${vCorrect}`);
     console.log(`correctRate: ${correctRate}`);
 
+    // 紀錄正確率
+    vAP.push(correctRate * 100);
+
     // 根據閾值、正確率，增減 Presentation Time
     vPresent.push(APR);
     APR = (correctRate >= 0.6) ? APR - 120 : APR + 180;
@@ -165,7 +169,7 @@ for(let i = 0; i < questions.length; i++) {
 displayer.show(["uploading"]);
 let success = await new Promise(async (resolve, reject) => {
     // 上傳資料
-    let status = await poster.writeData(external_id, table, vPresent, vResponse, vAns, vRt);
+    let status = await poster.writeData(external_id, table, vPresent, vResponse, vAns, vRt, vAP);
 
     // 檢查狀態
     if(status) {

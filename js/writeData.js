@@ -1,5 +1,5 @@
 export class Poster{
-  async writeData(prolificID, table, present, response, ans, rt) {
+  async writeData(prolificID, table, present, response, ans, rt, ap) {
     if (!prolificID) {
       alert("Error occured, please check your link.");
       console.error('Result(error): Prolific ID is missing.');
@@ -24,7 +24,7 @@ export class Poster{
 
     let temp = [];
     for(let i = 0 ; i < present.length ; i++){
-      temp.push({id:prolificID, block:i+1, present:present[i], response:response[i], ans:ans[i], acc:(response[i] === ans[i]) ? 1 : 0, rt:rt[i]});
+      temp.push({id:prolificID, block:i+1, present:present[i], response:response[i], ans:ans[i], acc:(response[i] === ans[i]) ? 1 : 0, rt:rt[i], ap:ap[i]});
     }
 
     const payload = {
