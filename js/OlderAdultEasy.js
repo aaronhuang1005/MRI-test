@@ -148,15 +148,20 @@ for(let i = 0; i < questions.length; i++) {
     correctRate = correctRate.toFixed(2);
     correctRate = parseFloat(correctRate);
 
-    console.log(`vCorrect: ${vCorrect}`);
-    console.log(`correctRate: ${correctRate}`);
-
     // 紀錄正確率
     vAP.push(correctRate * 100);
 
     // 根據閾值、正確率，增減 Presentation Time
     vPresent.push(APR);
-    APR = (correctRate >= 0.67) ? APR - 100 : APR + 200;
+
+    // 如果正確率剛好在 criterion 上，就不 PR 就不變
+    if(correctRate > 0.67) {
+        APR -= 100;
+    }else if(correctRate < 0.67) {
+        APR += 200
+    }
+
+    // 取最大最小值
     APR = Math.max(APR, 200);
     APR = Math.min(APR, 5000);
 

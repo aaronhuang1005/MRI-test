@@ -156,7 +156,15 @@ for(let i = 0; i < questions.length; i++) {
 
     // 根據閾值、正確率，增減 Presentation Time
     vPresent.push(APR);
-    APR = (correctRate >= 0.6) ? APR - 120 : APR + 180;
+    
+    // 如果正確率剛好在 criterion 上，就不 PR 就不變
+    if(correctRate > 0.6) {
+        APR -= 120;
+    }else if(correctRate < 0.6) {
+        APR += 180
+    }
+
+    // 取最大最小值
     APR = Math.max(APR, 200);
     APR = Math.min(APR, 5000);
 
