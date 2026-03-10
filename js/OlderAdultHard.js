@@ -148,9 +148,6 @@ for(let i = 0; i < questions.length; i++) {
     correctRate = correctRate.toFixed(2);
     correctRate = parseFloat(correctRate);
 
-    console.log(`vCorrect: ${vCorrect}`);
-    console.log(`correctRate: ${correctRate}`);
-
     // 紀錄正確率
     vAP.push(correctRate * 100);
 
