@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <title>TestMRI</title>
+        <meta name="description" content="TestMRI">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+        <link href="css/TutorialOlderAdultHard_v2.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    </head>
+
+    <body>
+        <!-- 包裝容器 -->
+        <div id="divContentWraper">
+            <!-- Instruction 介面 -->
+            <div id="divInstructionCover">
+                <h1>Instruction</h1>
+                <div id="btnStart"><p>START</p></div>
+            </div>
+
+            <!-- 教學 0 -->
+            <div id="divInstrution_0" style="display: none;">
+                <p style="width: 100%;">
+                    Please pay attention throughout the task.
+                    This task contains <strong>32 trials</strong>.<br><br>
+                    In each trial, you will see:<br>
+                    <strong>· 4 word pairs</strong><br>
+                    <strong>· 2 single words</strong><br>
+                    <strong>· 1 question with 3 answer options</strong><br><br>
+                </p>
+
+                <div style="margin-top: 24px; width: 100%; ">
+                    <p>
+                        river  –  bone<br>
+                        violin  –  nature<br>
+                        chair  –  cloud<br>
+                        shoe  –  stone
+                    </p>
+                    
+                    <p><span style="color: green;">&nbsp;&nbsp;➤&nbsp;&nbsp;</span></p>
+                    <p>cake <span style="color: green;">&nbsp;&nbsp;➤&nbsp;&nbsp;</span></p>
+                    <p>cookie <span style="color: green;">&nbsp;&nbsp;➤&nbsp;&nbsp;</span></p>
+                    <p style="font-size: 2.0vw; text-align: left;">
+                        <span style="display: block; margin-bottom: 12px;">Correct pairing for 'violin'</span>
+                        · nature <span style="color: green;">✔</span><br>
+                        · cake<br>
+                        · mountain
+                    </p>
+                </div>
+            </div>
+
+            <!-- 教學 1 -->
+            <div id="divInstrution_1" style="display: none;">
+                <p style="text-align: center;">
+                    <strong>Step 1 : Remember the word pairs</strong><br><br>
+                    You will first see 4 word pairs on the screen.
+                    Please try to remember ALL of the word pairs. Any of them may be tested later.
+
+                    <!-- 示意圖 -->
+                    <div id="divDisplayer_1" style="margin-top: 5vh;">
+                        <p style="display: block; position: absolute; top: 1vh; left: 1vw;">e.g.</p>
+                        <div style="margin-bottom: 5px;">
+                            <h1>river</h1>
+                            <div style="width: 2vw;">-</div>
+                            <h1>bone</h1>
+                        </div>
+
+                        <div style="margin-bottom: 5px;">
+                            <h1>violin</h1>
+                            <div style="width: 2vw;">-</div>
+                            <h1>nature</h1>
+                        </div>
+
+                        <div style="margin-bottom: 5px;">
+                            <h1>chair</h1>
+                            <div style="width: 2vw;">-</div>
+                            <h1>cloud</h1>
+                        </div>
+
+                        <div>
+                            <h1>shoe</h1>
+                            <div style="width: 2vw;">-</div>
+                            <h1>stone</h1>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
+            <!-- 教學 2 -->
+            <div id="divInstrution_2" style="display: none;">
+                <p style="text-align: center;">
+                    <strong>Step 2 : Ignore the single words</strong><br><br>
+                    Next, you will see two single words. These words are <strong>NOT</strong> important. 
+                    You do <strong>NOT</strong> need to remember them.
+                </p>
+
+                <!-- 示意圖 -->
+                <div id="divDisplayer_2" style="margin-top: 5vh;">
+                    <p style="display: block; position: absolute; top: 1vh; left: 1vw;">e.g.</p>
+                    <div>
+                        <h1>cookie</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教學 3 -->
+            <div id="divInstrution_3" style="display: none;">
+                <p style="text-align: center;">
+                    <strong>Step 3: Answer the question</strong><br><br>
+                    Finally, you will see a question. 
+                    Please select the correct answer as quickly and accurately as possible.
+                    You will have up to <strong>8 seconds</strong> to respond.
+                </p>
+
+                <!-- 示意圖 -->
+                <div id="divDisplayer_3" style="margin-top: 5vh;">
+                    <p style="display: block; position: absolute; top: 1vh; left: 1vw;">e.g.</p>
+                    <div>
+                        <h1>nature&nbsp;<span style="color: green;">✔</span></h1>
+                        <h1>cake</h1>
+                        <h1>mountain</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教學 4 -->
+            <div id="divInstrution_4" style="display: none;">
+                <p style="text-align: center;">
+                    <strong>Final instruction</strong><br><br>
+                    Sometimes the options may all look familiar. 
+                    Please choose the word that was paired with the cue in that trial.<br><br>
+                    The task will begin shortly. A fixation cross (+) will appear before each trial.
+                    Please stay focused and try your best.
+                </p>
+            </div>
+
+            <!-- 教學 5 -->
+            <div id="divInstrution_5">
+                <h1 id="cross" style="display: none;">+</h1>
+            </div>
+
+            <!-- Next/Back 按鈕 -->
+            <div id="divNextBack" style="display: none;">
+                <div id="btnBack"><p>BACK</p></div>
+                <p style="display: block;" id="pos"></p>
+                <div id="btnNext"><p>NEXT</p></div>
+            </div>
+        </div>
+    </body>
+
+    <script type="module" src="./js/TutorialOlderAdultHard_v2.js"></script>
+</html>
