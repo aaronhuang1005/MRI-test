@@ -8,14 +8,14 @@ const external_id = urlParams.get('external_id');
 const external_session_id = urlParams.get('external_session_id');
 
 // 表單名稱
-let table = "Old_Easy";
+let table = "Young_Hard";
 
 let displayer = new Displayer(); // 顯示器，用於顯示每個 Block
 let poster = new Poster(); // 用於上傳測驗數據
 
 // 載入題目
 let questionLoader = new QuestionLoader();
-let questions = await questionLoader.loadQuestions("https://docs.google.com/document/d/e/2PACX-1vTkYzHplIbG0plEdeEpkibToJfwDJ0kNS_E3z3KxelfmeUonWVlc8IMl06yxyfvaV7bk_7WQxnJrLrw/pub");
+let questions = await questionLoader.loadQuestions("https://docs.google.com/document/d/e/2PACX-1vQJRIzM1EYpOoa3tGaYqa5Ecij4d-3Rg2qKyrxWRQx7X7gPPsGAq8vQwKE3XIqsTP6e4KVAtxQIqkBL/pub");
 
 // 暫停一段時間(毫秒)
 async function sleep(ms) { 
@@ -28,8 +28,8 @@ async function sleep(ms) {
     }); 
 }
 
-let APR = 6000; // word pairs 的呈現秒數
-let NAPR = 1500; // 1 noise word 的持續時間
+let APR = 4000; // word pairs 的呈現秒數
+let NAPR = 1000; // 1 noise word 的持續時間
 let WAIT = 2000; // 加號、題號的持續時間
 let nCorrect = 0; // 作答正確次數
 let vCorrect = []; // 答題正確與否紀錄

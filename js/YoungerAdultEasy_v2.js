@@ -8,7 +8,7 @@ const external_id = urlParams.get('external_id');
 const external_session_id = urlParams.get('external_session_id');
 
 // 表單名稱
-let table = "Old_Easy";
+let table = "Young_Easy";
 
 let displayer = new Displayer(); // 顯示器，用於顯示每個 Block
 let poster = new Poster(); // 用於上傳測驗數據
@@ -28,8 +28,8 @@ async function sleep(ms) {
     }); 
 }
 
-let APR = 6000; // word pairs 的呈現秒數
-let NAPR = 1500; // 1 noise word 的持續時間
+let APR = 4000; // word pairs 的呈現秒數
+let NAPR = 1000; // 1 noise word 的持續時間
 let WAIT = 2000; // 加號、題號的持續時間
 let nCorrect = 0; // 作答正確次數
 let vCorrect = []; // 答題正確與否紀錄

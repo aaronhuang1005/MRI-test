@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <title>TestMRI</title>
+        <meta name="description" content="TestMRI">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+        <link href="css/YoungerAdultEasy_v2.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    </head>
+
+    <body>
+        <div id="Displayer">
+            <h1 id="cross" style="display: none;">+</h1>
+
+            <h1 id="reminder" style="display: none;">reminder</h1>
+            
+            <div id="noise" style="display: none;">
+                <h1 id="noise_1">noise_1</h1>
+                <h1 id="noise_2">noise_2</h1>
+            </div>
+            
+            <div id="targets" style="display: none;">
+                <div id="pair_1" style="margin-bottom: 16px;">
+                    <h1 id="target_1">target_1</h1>
+                    <div style="width: 2vw; text-align: center;"><strong>—</strong></div>
+                    <h1 id="target_2">target_2</h1>
+                </div>
+
+                <div id="pair_2" style="margin-bottom: 16px;">
+                    <h1 id="target_3">target_3</h1>
+                    <div style="width: 2vw; text-align: center;"><strong>—</strong></div>
+                    <h1 id="target_4">target_4</h1>
+                </div>
+
+                <div id="pair_3" style="margin-bottom: 16px;">
+                    <h1 id="target_5">target_5</h1>
+                    <div style="width: 2vw; text-align: center;"><strong>—</strong></div>
+                    <h1 id="target_6">target_6</h1>
+                </div>
+
+                <div id="pair_4">
+                    <h1 id="target_7">target_7</h1>
+                    <div style="width: 2vw; text-align: center;"><strong>—</strong></div>
+                    <h1 id="target_8">target_8</h1>
+                </div>
+            </div>
+            
+            <div id="options" style="display: none;">
+                <h1 id="option_1">option_1</h1>
+                <h1 id="option_2">option_2</h1>
+                <h1 id="option_3">option_3</h1>
+            </div>
+            
+            <h1 id="taskFinish" style="text-align: center; display: none;">Task Finished.<br>Go to the next stage.</h1>
+            <h1 id="uploading" style="display: none;">Uploading data... Please wait.</h1>
+
+            <h1 id="question" style="display: none;"></h1>
+        </div>
+    </body>
+
+    <script type="module" src="./js/YoungerAdultEasy_v2.js"></script>
+</html>
