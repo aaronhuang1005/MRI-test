@@ -178,18 +178,14 @@ for(let i = 0; i < questions.length; i++) {
 
     // 如果正確率剛好在 criterion 上，就不 PR 就不變
     if(correctRate > 0.67) {
-        APR -= 100;
-        NAPR -= 100;
+        APR -= 400;
     }else if(correctRate < 0.67) {
-        APR += 200
-        NAPR += 200;
+        APR += 600;
     }
 
     // 取最大最小值
-    APR = Math.max(APR, 200);
-    APR = Math.min(APR, 8000);
-    NAPR = Math.max(NAPR, 200);
-    NAPR = Math.min(NAPR, 5000);
+    APR = Math.max(APR, 2000);
+    APR = Math.min(APR, 10000);
 
     // 顯示加號
     displayer.show(["cross"]);
