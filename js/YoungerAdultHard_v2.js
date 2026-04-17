@@ -206,6 +206,10 @@ let success = await new Promise(async (resolve, reject) => {
     }
 });
 
+// 完成代碼
+const completionCode = "C7NT30YK";
+const completionURL = `https://app.prolific.com/submissions/complete?cc=${completionCode}`;
+
 // 如果上傳成功，導向 Prolific 完成頁面
 if(success) {
     // 顯示完成
@@ -213,11 +217,7 @@ if(success) {
     await sleep(WAIT);
 
     console.log("All the data has been uploaded successfully.");
-    window.location.replace( // 前往 Gorilla 測驗
-        `https://research.sc/participant/login/dynamic/1E363DC1-B2AB-46FE-B0B1-ECEEB34AC9ED?
-        external_id=${external_id}&
-        external_session_id=${external_session_id}`
-    );
+    window.location.replace(completionURL);
     
 }else {
     alert('Error occured while sending data, please try again later.');
