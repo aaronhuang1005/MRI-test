@@ -28,7 +28,7 @@ async function sleep(ms) {
     }); 
 }
 
-let APR = 5000; // word pairs 的呈現秒數
+let APR = 4000; // word pairs 的呈現秒數
 let NAPR = 1000; // 1 noise word 的持續時間
 let WAIT = 2000; // 加號、題號的持續時間
 let nCorrect = 0; // 作答正確次數
