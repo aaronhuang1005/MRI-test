@@ -210,7 +210,7 @@ let success = await new Promise(async (resolve, reject) => {
 const completionCode = "C7NT30YK";
 const completionURL = `https://app.prolific.com/submissions/complete?cc=${completionCode}`;
 
-// 如果上傳成功，導向 Prolific 完成頁面
+// 如果上傳成功，導向 Gorilla 測驗
 if(success) {
     // 顯示完成
     displayer.show(["taskFinish"]);
