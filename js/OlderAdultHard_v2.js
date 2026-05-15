@@ -217,7 +217,7 @@ if(success) {
     await sleep(WAIT);
 
     console.log("All the data has been uploaded successfully.");
-    window.location.replace(completionURL);
+    window.location.replace("https://research.sc/participant/login/dynamic/0CC4B0CB-FAF3-4609-915E-4616987B487F");
     
 }else {
     alert('Error occured while sending data, please try again later.');

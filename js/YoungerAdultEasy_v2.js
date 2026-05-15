@@ -210,14 +210,14 @@ let success = await new Promise(async (resolve, reject) => {
 const completionCode = "C7NT30YK";
 const completionURL = `https://app.prolific.com/submissions/complete?cc=${completionCode}`;
 
-// 如果上傳成功，導向 Prolific 完成頁面
+// 如果上傳成功，導向 Gorilla 測驗
 if(success) {
     // 顯示完成
     displayer.show(["taskFinish"]);
     await sleep(WAIT);
 
     console.log("All the data has been uploaded successfully.");
-    window.location.replace(completionURL);
+    window.location.replace("https://research.sc/participant/login/dynamic/D4F0204F-D1AA-4C17-A0CF-B9565E5BF190");
     
 }else {
     alert('Error occured while sending data, please try again later.');
